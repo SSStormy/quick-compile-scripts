@@ -143,7 +143,7 @@ case $1 in
         ;;
 
     "output")
-        if [ $TMUX_PANE != "" ] ; then
+        if [ "$TMUX_PANE" != "" ] ; then
             QCS_TMUX_PANE=$TMUX_PANE
             log "Set QCS output pane to ${QCS_TMUX_PANE}"
         else
