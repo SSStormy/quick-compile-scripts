@@ -81,7 +81,7 @@ function script_run() {
 function script_test() {
     case $QCS_PROJECT_LANG in
         $QCS_LANG_CPP) 
-            send_to_putput "echo Testing CPP projects is unsupported."
+            send_cmd_to_output "cd build; make tests -j8; ./tests"
             ;;
         $QCS_LANG_RUST_LIB|$QCS_LANG_RUST_BIN)
             send_cmd_to_output "RUST_BACKTRACE=1 cargo test"
