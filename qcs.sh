@@ -50,7 +50,7 @@ function send_cmd_to_output() {
 function script_build() {
     case $QCS_PROJECT_LANG in
         $QCS_LANG_CPP) 
-            send_cmd_to_output "make -j8"
+            send_cmd_to_output "cd build; make -j8"
             ;;
         $QCS_LANG_RUST_BIN|$QCS_LANG_RUST_LIB)
             send_cmd_to_output "cargo check"
