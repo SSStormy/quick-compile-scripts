@@ -31,18 +31,11 @@ QCS_PROJECT_DIR=${arr[0]}
 QCS_PROJECT_LANG=${arr[1]}
 QCS_TMUX_PANE=${arr[2]}
 
-function send_key_to_output() {
-    if [ "$QCS_TMUX_PANE" = "" ] ; then
-        warn "No TMUX pane selected. (output)"
-    else
-        tmux send-keys -t $@
-    fi
-}
-
 function send_cmd_to_output() {
     if [ "$QCS_TMUX_PANE" = "" ] ; then
         warn "No TMUX pane selected. (output)"
     else
+        tmux send-keys -t $QCS_TMUX_PANE C-c
         tmux send-keys -t $QCS_TMUX_PANE " cd "$QCS_PROJECT_DIR"; clear; $@" C-m 
     fi
 }
